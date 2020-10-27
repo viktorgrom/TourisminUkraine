@@ -56,11 +56,13 @@ public class SignIn extends AppCompatActivity {
                             User user = snapshot.child(edtPhone.getText().toString()).getValue(User.class);
                             if (user.getPassword().equals(edtPassword.getText().toString())) {
                                 Toast.makeText(SignIn.this, "Вхід виконано", Toast.LENGTH_SHORT).show();
+                                Intent homeIntent = new Intent(SignIn.this, HomeActivity.class);
+                                startActivity(homeIntent);
                             } else {
-                                /*Intent categotyIntent = new Intent(SignIn.this, CategoryActivity.class);
+                                Intent homeIntent = new Intent(SignIn.this, HomeActivity.class);
                                 Common.currenrUser = user;
-                                startActivity(categotyIntent);
-                                finish();*/
+                                startActivity(homeIntent);
+                                finish();
                             }
                         } else {
                             mDialog.dismiss();
