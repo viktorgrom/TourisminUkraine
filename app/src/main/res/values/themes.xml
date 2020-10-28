@@ -22,4 +22,8 @@
     <style name="Theme.TourismInUkraine.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.TourismInUkraine.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ToolbarColoredBlackArrow" parent="Theme.TourismInUkraine">
+        <item name="android:textColorSecondary">@android:color/black</item>
+    </style>
 </resources>
