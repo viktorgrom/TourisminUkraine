@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
+import com.example.tourisminukraine.EventBus.CategoryClick;
+import com.example.tourisminukraine.EventBus.PlaceItemClick;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -17,6 +20,10 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -43,14 +50,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_menu, R.id.nav_slideshow)
+                R.id.nav_home, R.id.nav_menu, R.id.nav_place_list)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.bringToFront(); //Fixed
+        navigationView.bringToFront();
     }
 
     @Override
@@ -67,18 +74,51 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 || super.onSupportNavigateUp();
     }
 
+    //event bus
+
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        item.setChecked(true);
-        drawer.closeDrawers();
-        switch (item.getItemId())
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+
+    }
+
+    @Override
+    protected void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onCategorySelected(CategoryClick event)
+    {
+        if (event.isSuccess())
         {
+            navController.navigate(R.id.nav_place_list);
+            //Toast.makeText(this, "You Clicked to:"+event.getCategoryModel().getName(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onPlaceItemClick(PlaceItemClick event)
+    {
+        if (event.isSuccess())
+        {
+
+            navController.navigate(R.id.nav_place_detail);
+        }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        menuItem.setCheckable(true);
+        drawer.closeDrawers();
+        switch (menuItem.getItemId()){
             case R.id.nav_home:
                 navController.navigate(R.id.nav_home);
                 break;
             case R.id.nav_menu:
                 navController.navigate(R.id.nav_menu);
-                break;
+
         }
         return true;
     }

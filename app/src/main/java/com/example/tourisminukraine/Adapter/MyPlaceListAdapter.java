@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.tourisminukraine.Callback.IRecyclerClickListener;
 import com.example.tourisminukraine.Common.Common;
-import com.example.tourisminukraine.EventBus.CategoryClick;
+import com.example.tourisminukraine.EventBus.PlaceItemClick;
 import com.example.tourisminukraine.R;
-import com.example.tourisminukraine.model.CategoryModel;
+import com.example.tourisminukraine.model.PlaceModel;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -25,48 +25,54 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class MyCategoriesAdapter extends RecyclerView.Adapter<MyCategoriesAdapter.MyViewHolder> {
+public class MyPlaceListAdapter extends RecyclerView.Adapter<MyPlaceListAdapter.MyViewHolder> {
 
-    Context context;
-    List<CategoryModel> categoryModelList;
+    private final Context context;
+    private final List<PlaceModel> placeModelList;
 
-    public MyCategoriesAdapter(Context context, List<CategoryModel> categoryModelList) {
+    public MyPlaceListAdapter(Context context, List<PlaceModel> placeModelList) {
         this.context = context;
-        this.categoryModelList = categoryModelList;
+        this.placeModelList = placeModelList;
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.layout_category_item,parent,false));
+        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.layout_place_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Glide.with(context).load(categoryModelList.get(position).getImage()).into(holder.category_image);
-        holder.category_name.setText(new StringBuilder(categoryModelList.get(position).getName()));
+        Glide.with(context).load(placeModelList.get(position).getImage()).into(holder.img_place_image);
+        holder.txt_place_price.setText(new StringBuilder("$").append(placeModelList.get(position).getPrice()));
+        holder.txt_place_name.setText(new StringBuilder("").append(placeModelList.get(position).getName()));
 
         //Event
         holder.setListener((view, pos) -> {
-            Common.categorySelected = categoryModelList.get(pos);
-            EventBus.getDefault().postSticky(new CategoryClick(true, categoryModelList.get(pos)));
-
+            Common.selectedPlace = placeModelList.get(pos);
+            EventBus.getDefault().postSticky(new PlaceItemClick(true, placeModelList.get(pos)));
         });
 
     }
 
     @Override
     public int getItemCount() {
-        return categoryModelList.size();
+        return placeModelList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        Unbinder unbinder;
+        private Unbinder unbinder;
 
-        @BindView(R.id.img_category)
-        ImageView category_image;
-        @BindView(R.id.txt_category)
-        TextView category_name;
+        @BindView(R.id.txt_place_name)
+        TextView txt_place_name;
+        @BindView(R.id.txt_place_price)
+        TextView txt_place_price;
+        @BindView(R.id.img_place_image)
+        ImageView img_place_image;
+        @BindView(R.id.img_fav)
+        ImageView img_fav;
+        @BindView(R.id.img_quick_cart)
+        ImageView img_cart;
 
         IRecyclerClickListener listener;
 
@@ -84,19 +90,5 @@ public class MyCategoriesAdapter extends RecyclerView.Adapter<MyCategoriesAdapte
         public void onClick(View v) {
             listener.onItemClickListener(v, getAdapterPosition());
         }
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        if (categoryModelList.size() == 1)
-            return Common.DEFAULT_COLUMN_COUNT;
-        else
-        {
-            if(categoryModelList.size() % 2 == 0)
-                return Common.DEFAULT_COLUMN_COUNT;
-            else
-                return (position > 1 && position == categoryModelList.size()-1) ? Common.FULL_WIDTH_COLUMN:Common.DEFAULT_COLUMN_COUNT;
-        }
-
     }
 }

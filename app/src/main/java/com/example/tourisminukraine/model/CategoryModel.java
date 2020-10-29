@@ -5,7 +5,8 @@ import java.util.List;
 public class CategoryModel {
 
     private String menu_id, name, image;
-    List<PlaceModel> place;
+
+    List<PlaceModel> foods;
 
     public CategoryModel() {
     }
@@ -33,12 +34,14 @@ public class CategoryModel {
     public void setImage(String image) {
         this.image = image;
     }
-
-    public List<PlaceModel> getPlace() {
-        return place;
+    public List<PlaceModel> getFoods() {
+        return foods;
     }
 
-    public void setPlace(List<PlaceModel> place) {
-        this.place = place;
+    public void setFoods(List<PlaceModel> foods) {
+        this.foods = foods;
     }
+
+
+
 }
