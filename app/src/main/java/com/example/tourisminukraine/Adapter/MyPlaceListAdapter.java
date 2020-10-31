@@ -48,9 +48,12 @@ public class MyPlaceListAdapter extends RecyclerView.Adapter<MyPlaceListAdapter.
         holder.txt_place_name.setText(new StringBuilder("").append(placeModelList.get(position).getName()));
 
         //Event
-        holder.setListener((view, pos) -> {
-            Common.selectedPlace = placeModelList.get(pos);
-            EventBus.getDefault().postSticky(new PlaceItemClick(true, placeModelList.get(pos)));
+        holder.setListener(new IRecyclerClickListener() {
+            @Override
+            public void onItemClickListener(View view, int pos) {
+                Common.selectedPlace = placeModelList.get(pos);
+                EventBus.getDefault().postSticky(new PlaceItemClick(true, placeModelList.get(pos)));
+            }
         });
 
     }

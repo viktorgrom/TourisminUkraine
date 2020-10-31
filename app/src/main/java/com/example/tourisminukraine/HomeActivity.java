@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_menu, R.id.nav_place_list)
+                R.id.nav_home, R.id.nav_menu, R.id.nav_place_list, R.id.nav_place_detail)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         if (event.isSuccess())
         {
             navController.navigate(R.id.nav_place_list);
-            //Toast.makeText(this, "You Clicked to:"+event.getCategoryModel().getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You Clicked to:"+event.getCategoryModel().getName(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -103,6 +103,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     {
         if (event.isSuccess())
         {
+            Toast.makeText(this, "You Clicked to:"+event.getPlaceModel().getName(), Toast.LENGTH_SHORT).show();
 
             navController.navigate(R.id.nav_place_detail);
         }
@@ -118,6 +119,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_menu:
                 navController.navigate(R.id.nav_menu);
+
 
         }
         return true;
