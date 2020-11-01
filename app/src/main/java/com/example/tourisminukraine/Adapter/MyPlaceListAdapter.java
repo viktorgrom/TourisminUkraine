@@ -52,6 +52,7 @@ public class MyPlaceListAdapter extends RecyclerView.Adapter<MyPlaceListAdapter.
             @Override
             public void onItemClickListener(View view, int pos) {
                 Common.selectedPlace = placeModelList.get(pos);
+                Common.selectedPlace.setKey(String.valueOf(pos));
                 EventBus.getDefault().postSticky(new PlaceItemClick(true, placeModelList.get(pos)));
             }
         });
