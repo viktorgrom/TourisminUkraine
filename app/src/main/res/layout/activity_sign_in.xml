@@ -21,7 +21,7 @@
             android:id="@+id/edtPhone"
             android:hint="Phone Number"
             android:textColorHint="@android:color/white"
-            android:text="0673503166"
+            android:text="0673503163"
             android:textColor="@android:color/white"
             android:textSize="34sp"
             android:inputType="phone"

@@ -27,10 +27,13 @@ import com.example.tourisminukraine.Common.Common;
 import com.example.tourisminukraine.R;
 import com.example.tourisminukraine.model.CommentModel;
 import com.example.tourisminukraine.model.PlaceModel;
+import com.example.tourisminukraine.ui.comments.CommentFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -77,6 +80,12 @@ public class PlaceDetailFragment extends Fragment {
         showDialogRating();
     }
 
+    @OnClick(R.id.btnShowComment)
+    void onShowCommentButtonClick(){
+        CommentFragment commentFragment = CommentFragment.getInstance();
+        commentFragment.show(getActivity().getSupportFragmentManager(),"CommentFragment");
+    }
+
     //Діалог комент і рейтинг
 
     private void showDialogRating() {
@@ -96,7 +105,7 @@ public class PlaceDetailFragment extends Fragment {
         });
         builder.setPositiveButton("OK", (dialog, which) -> {
             CommentModel commentModel = new CommentModel();
-            //commentModel.setName(Common.currenrUser.getName());
+            commentModel.setName(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
 
             //потрібно повернутись в реєстрацію і розібратись що це нижче
             //commentModel.setUid(Common.currenrUser.getUid());
@@ -166,7 +175,7 @@ public class PlaceDetailFragment extends Fragment {
                 .getReference(Common.CATEGORY_REF)
                 .child(Common.categorySelected.getMenu_id()) //обираєм категорію
                 .child("foods") //обираємо масив
-                .child(Common.selectedPlace.getKey()) //оскільки плейс це масив, тому ключем є інтекс масиву
+                .child(Common.selectedPlace.getKey()) //оскільки плейс це масив, тому ключем є індекс масиву
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -179,16 +188,16 @@ public class PlaceDetailFragment extends Fragment {
                             if (placeModel.getRatingValue() == null)
                                 placeModel.setRatingValue(0d); // d = lower case
                             if (placeModel.getRatingCount() == null)
-                                placeModel.setRatingCount(0L); // 1 = L lower case, not 1
-                            double sumRaiting = placeModel.getRatingValue() + ratingValue;
+                                placeModel.setRatingCount(0L); // l = L lower case
+                            double sumRating = placeModel.getRatingValue() + ratingValue;
                             long ratingCount = placeModel.getRatingCount()+1;
-                            double result = sumRaiting/ratingCount;
+                            double result = sumRating/ratingCount;
 
                             Map<String , Object> updateData = new HashMap<>();
                             updateData.put("ratingValue", result);
                             updateData.put("ratingCount", ratingCount);
 
-                            //оновлено змінні з бази
+                            //оновлено змінні з бази в додатку
                             placeModel.setRatingValue(result);
                             placeModel.setRatingCount(ratingCount);
 

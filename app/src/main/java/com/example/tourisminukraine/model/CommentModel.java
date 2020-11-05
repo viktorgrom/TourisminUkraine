@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class CommentModel {
     private float ratingValue;
-    private String comment, name, uid;
+    private String comment, name;
     private Map<String, Object> commentTimeStamp;
 
     public CommentModel() {
@@ -32,14 +32,6 @@ public class CommentModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
     }
 
     public Map<String, Object> getCommentTimeStamp() {
