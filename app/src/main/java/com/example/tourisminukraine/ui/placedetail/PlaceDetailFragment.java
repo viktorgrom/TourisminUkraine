@@ -96,7 +96,7 @@ public class PlaceDetailFragment extends Fragment {
         });
         builder.setPositiveButton("OK", (dialog, which) -> {
             CommentModel commentModel = new CommentModel();
-            commentModel.setName(Common.currenrUser.getName());
+            //commentModel.setName(Common.currenrUser.getName());
 
             //потрібно повернутись в реєстрацію і розібратись що це нижче
             //commentModel.setUid(Common.currenrUser.getUid());

@@ -3,23 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.tourisminukraine">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        tools:replace="theme"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.TourismInUkraine"
-        >
+        tools:replace="theme">
+        <activity android:name=".MainActivity2" />
+        <activity android:name=".SignInEmail" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/Theme.TourismInUkraine.NoActionBar"/>
+            android:theme="@style/Theme.TourismInUkraine.NoActionBar" />
         <activity android:name=".SignUp" />
         <activity android:name=".SignIn" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
