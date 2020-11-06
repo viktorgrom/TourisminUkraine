@@ -191,14 +191,14 @@ public class PlaceDetailFragment extends Fragment {
                                 placeModel.setRatingCount(0L); // l = L lower case
                             double sumRating = placeModel.getRatingValue() + ratingValue;
                             long ratingCount = placeModel.getRatingCount()+1;
-                            double result = sumRating/ratingCount;
+                            //double result = sumRating/ratingCount;
 
                             Map<String , Object> updateData = new HashMap<>();
-                            updateData.put("ratingValue", result);
+                            updateData.put("ratingValue", sumRating);
                             updateData.put("ratingCount", ratingCount);
 
                             //оновлено змінні з бази в додатку
-                            placeModel.setRatingValue(result);
+                            placeModel.setRatingValue(sumRating);
                             placeModel.setRatingCount(ratingCount);
 
                             snapshot.getRef()
@@ -237,7 +237,7 @@ public class PlaceDetailFragment extends Fragment {
         food_price.setText(new StringBuilder(placeModel.getPrice().toString()));
 
         if (placeModel.getRatingValue() != null)
-        ratingBar.setRating(placeModel.getRatingValue().floatValue());
+        ratingBar.setRating(placeModel.getRatingValue().floatValue() / placeModel.getRatingCount());
 
         ((AppCompatActivity)getActivity())
                 .getSupportActionBar()
