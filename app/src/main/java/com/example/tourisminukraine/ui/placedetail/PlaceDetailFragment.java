@@ -67,8 +67,7 @@ public class PlaceDetailFragment extends Fragment {
     TextView place_descriptions;
     @BindView(R.id.food_price)
     TextView food_price;
-    @BindView(R.id.number_button)
-    ElegantNumberButton numberButton;
+
     @BindView(R.id.ratingBar)
     RatingBar ratingBar;
     @BindView(R.id.btnShowComment)

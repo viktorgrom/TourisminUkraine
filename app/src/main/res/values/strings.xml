@@ -19,4 +19,7 @@
     <string name="menu_menu">Категорії</string>
     <string name="menu_slideshow">Вийти</string>
     <string name="drawler_group_category_name">Вибір місця по:</string>
+    <string name="action_search_title">Пошук</string>
+    <string name="detail_layout_description">Детально про місце:</string>
+    <string name="detail_layout_response">Показати коментарі</string>
 </resources>

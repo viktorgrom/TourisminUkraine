@@ -7,13 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".SignInEmail">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_sign_out"
-        android:text="Sign out"
-        android:enabled="false"
-        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
 
