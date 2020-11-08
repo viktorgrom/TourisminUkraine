@@ -12,8 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.tourisminukraine.Callback.IRecyclerClickListener;
+import com.example.tourisminukraine.Common.Common;
+import com.example.tourisminukraine.EventBus.CategoryClick;
 import com.example.tourisminukraine.EventBus.PopularCategoryClick;
 import com.example.tourisminukraine.R;
+import com.example.tourisminukraine.model.CategoryModel;
 import com.example.tourisminukraine.model.PopularCategoryModel;
 
 import org.greenrobot.eventbus.EventBus;
@@ -28,11 +31,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MyPopularCategoriesAdapter extends RecyclerView.Adapter<MyPopularCategoriesAdapter.MyViewHolder> {
 
     Context context;
-    List<PopularCategoryModel> popularCategoryModelList;
+    List<CategoryModel> categoryModelList;
 
-    public MyPopularCategoriesAdapter(Context context, List<PopularCategoryModel> popularCategoryModelList) {
+    public MyPopularCategoriesAdapter(Context context, List<CategoryModel> CategoryModelList) {
         this.context = context;
-        this.popularCategoryModelList = popularCategoryModelList;
+        this.categoryModelList = CategoryModelList;
     }
 
 
@@ -44,18 +47,20 @@ public class MyPopularCategoriesAdapter extends RecyclerView.Adapter<MyPopularCa
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Glide.with(context).load(popularCategoryModelList.get(position).getImage()).into(holder.category_image);
-        holder.txt_category_name.setText(popularCategoryModelList.get(position).getName());
+        Glide.with(context).load(categoryModelList.get(position).getImage()).into(holder.category_image);
+        holder.txt_category_name.setText(categoryModelList.get(position).getName());
 
-        holder.setListener((view, pos) ->
-                        EventBus.getDefault().postSticky(new PopularCategoryClick(popularCategoryModelList.get(pos)))
-                );
+        holder.setListener((view, pos) ->{
+            Common.categorySelected = categoryModelList.get(pos);
+            EventBus.getDefault().postSticky(new CategoryClick(true, categoryModelList.get(pos)));
+
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return popularCategoryModelList.size();
+        return categoryModelList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

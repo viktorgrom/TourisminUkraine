@@ -6,9 +6,11 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.tourisminukraine.Callback.IBestPlaceCallbackListener;
+import com.example.tourisminukraine.Callback.ICategoryCallbackListener;
 import com.example.tourisminukraine.Callback.IPopularCallbackListener;
 import com.example.tourisminukraine.Common.Common;
 import com.example.tourisminukraine.model.BestPlaceModel;
+import com.example.tourisminukraine.model.CategoryModel;
 import com.example.tourisminukraine.model.PopularCategoryModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,16 +21,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeViewModel extends ViewModel implements IPopularCallbackListener, IBestPlaceCallbackListener {
+public class HomeViewModel extends ViewModel implements ICategoryCallbackListener, IBestPlaceCallbackListener {
 
-    private MutableLiveData <List<PopularCategoryModel>> popularList;
+    private MutableLiveData <List<CategoryModel>> categoryList;
     private MutableLiveData <List<BestPlaceModel>> bestPlaceList;
     private MutableLiveData <String> messageError;
-    private IPopularCallbackListener popularCallbackListener;
+    private ICategoryCallbackListener categoryCallbackListener;
     private IBestPlaceCallbackListener bestPlaceCallbackListener;
 
     public HomeViewModel() {
-       popularCallbackListener = this;
+        categoryCallbackListener = this;
        bestPlaceCallbackListener = this;
     }
 
@@ -65,33 +67,33 @@ public class HomeViewModel extends ViewModel implements IPopularCallbackListener
         });
     }
 
-    public MutableLiveData<List<PopularCategoryModel>> getPopularList() {
-        if (popularList == null)
+    public MutableLiveData<List<CategoryModel>> getPopularList() {
+        if (categoryList == null)
         {
-            popularList = new MutableLiveData<>();
+            categoryList = new MutableLiveData<>();
             messageError = new MutableLiveData<>();
-            loadPopularList();
+            loadCategoryList();
         }
-        return popularList;
+        return categoryList;
     }
 
-    private void loadPopularList() {
-        List <PopularCategoryModel> tempList = new ArrayList<>();
-        DatabaseReference popularRef = FirebaseDatabase.getInstance().getReference(Common.POPULAR_CATEGORY_REF);
-        popularRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void loadCategoryList() {
+        List <CategoryModel> tempList = new ArrayList<>();
+        DatabaseReference categoryRef = FirebaseDatabase.getInstance().getReference(Common.CATEGORY_REF);
+        categoryRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot itemSnapshot: snapshot.getChildren())
                 {
-                    PopularCategoryModel model = itemSnapshot.getValue(PopularCategoryModel.class);
+                    CategoryModel model = itemSnapshot.getValue(CategoryModel.class);
                     tempList.add(model);
                 }
-                popularCallbackListener.onPopularLoadSuccess(tempList);
+                categoryCallbackListener.onCategoryLoadSuccess(tempList);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                popularCallbackListener.onPopularLoadFailed(error.getMessage());
+                categoryCallbackListener.onCategoryFailed(error.getMessage());
 
             }
         });
@@ -102,12 +104,12 @@ public class HomeViewModel extends ViewModel implements IPopularCallbackListener
     }
 
     @Override
-    public void onPopularLoadSuccess(List<PopularCategoryModel> popularCategoryModels) {
-        popularList.setValue(popularCategoryModels);
+    public void onCategoryLoadSuccess(List<CategoryModel> categoryModels) {
+        categoryList.setValue(categoryModels);
     }
 
     @Override
-    public void onPopularLoadFailed(String message) {
+    public void onCategoryFailed(String message) {
         messageError.setValue(message);
 
     }

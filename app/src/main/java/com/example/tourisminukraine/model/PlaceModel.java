@@ -6,8 +6,8 @@ public class PlaceModel {
     private String key;
     private String name, image, id, description;
     private Long price;
-    private List <AddonModel> addon;
-    private List <SizeModel> size;
+    //private List <AddonModel> addon;
+    //private List <SizeModel> size;
     private Double ratingValue;
     private Long ratingCount;
 
@@ -62,7 +62,7 @@ public class PlaceModel {
         this.price = price;
     }
 
-    public List<AddonModel> getAddon() {
+    /*public List<AddonModel> getAddon() {
         return addon;
     }
 
@@ -76,7 +76,7 @@ public class PlaceModel {
 
     public void setSize(List<SizeModel> size) {
         this.size = size;
-    }
+    }*/
 
     public Double getRatingValue() {
         return ratingValue;
