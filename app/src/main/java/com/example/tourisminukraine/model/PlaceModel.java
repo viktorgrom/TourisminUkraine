@@ -1,5 +1,7 @@
 package com.example.tourisminukraine.model;
 
+import com.denzcoskun.imageslider.ImageSlider;
+
 import java.util.List;
 
 public class PlaceModel {
@@ -10,6 +12,7 @@ public class PlaceModel {
     //private List <SizeModel> size;
     private Double ratingValue;
     private Long ratingCount;
+
 
     public PlaceModel() {
     }

@@ -27,4 +27,10 @@
         android:name="com.example.tourisminukraine.ui.placedetail.PlaceDetailFragment"
         android:label="@string/menu_place_detail"
         tools:layout="@layout/fragment_place_detail" />
+    <fragment
+        android:id="@+id/nav_map_fragment"
+        android:name="com.example.tourisminukraine.MapsFragment"
+        android:label="@string/menu_map"
+        tools:layout="@layout/fragment_maps"/>
+
 </navigation>
