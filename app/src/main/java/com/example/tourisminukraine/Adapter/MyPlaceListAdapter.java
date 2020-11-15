@@ -44,7 +44,7 @@ public class MyPlaceListAdapter extends RecyclerView.Adapter<MyPlaceListAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context).load(placeModelList.get(position).getImage()).into(holder.img_place_image);
-        holder.txt_place_price.setText(new StringBuilder("$").append(placeModelList.get(position).getPrice()));
+        //holder.txt_place_price.setText(new StringBuilder("$").append(placeModelList.get(position).getPrice()));
         holder.txt_place_name.setText(new StringBuilder("").append(placeModelList.get(position).getName()));
 
         //Event
@@ -69,14 +69,14 @@ public class MyPlaceListAdapter extends RecyclerView.Adapter<MyPlaceListAdapter.
 
         @BindView(R.id.txt_place_name)
         TextView txt_place_name;
-        @BindView(R.id.txt_place_price)
-        TextView txt_place_price;
+        /*@BindView(R.id.txt_place_price)
+        TextView txt_place_price;*/
         @BindView(R.id.img_place_image)
         ImageView img_place_image;
         @BindView(R.id.img_fav)
         ImageView img_fav;
-        @BindView(R.id.img_quick_cart)
-        ImageView img_cart;
+        /*@BindView(R.id.img_quick_cart)
+        ImageView img_cart;*/
 
         IRecyclerClickListener listener;
 

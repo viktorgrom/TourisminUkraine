@@ -7,7 +7,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Написати розробнику</string>
+    <string name="action_settings">Про проект</string>
 
     <string name="menu_home">Головна</string>
     <string name="menu_gallery">Gallery</string>
@@ -26,4 +26,6 @@
     <string name="map_key" translatable="false">
         AIzaSyArruwNds8xvxWDLfZ8eNwycub9rqIL5DY
     </string>
+    <string name="about_iv_text">Проект продовжує розвиватись…</string>
+    <string name="about_textmessage">Дякую, що вcтановили цей додаток. Україна надзвичайно багата на історичні, природні, архітектурні пам\'ятки, моя мета - знайомство з маловідомими куточками України та популяризація туризму. Сподіваюсь, потік туристів спонукатиме можновладців до збереження цікавих пам\'яток. Багато місць ми з дружиною відвідали особисто та викладаємо власні фото, описуємо враження які отримали. Фото, інформацію про деякі місця я брав з відкритих ресурсів, зокрема uk.wikipedia.org. Якщо Ви маєте права на ті чи інші файли з відкритих ресурсів, напишіть мені лист на пошту: 0673503163v@gmail.com і цю інформацію буде видалено з додатку. Над проектом працюю вже 3 місяці і не планую зупинятись на досягнутому. Ви можете допомогти, якщо Вам відомі цікаві місця, а ми ще їх не виклали у додатку - надсилайте ваші фото та коротку інформацію про місце мені на пошту: 0673503163v@gmail.com </string>
 </resources>

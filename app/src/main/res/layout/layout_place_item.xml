@@ -24,13 +24,13 @@
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:weightSum="10"
+            android:weightSum="12"
             android:background="@color/border_color">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="8"
+                android:layout_weight="11"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -39,27 +39,19 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/txt_place_name"
                     android:fontFamily="@fonts/brandon_medium"
-                    android:text="Name of place"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/txt_place_price"
-                    android:fontFamily="@fonts/brandon_medium"
-                    android:text="$0"
-                    android:textColor="@android:color/white"
-                    android:textSize="20sp"/>
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal"
-                android:weightSum="2"
                 android:gravity="center_vertical">
 
                 <ImageView
@@ -68,13 +60,6 @@
                     android:layout_weight="1"
                     android:id="@+id/img_fav"
                     android:src="@drawable/ic_baseline_favorite_border_24"
-                    app:tint="@android:color/white" />
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:id="@+id/img_quick_cart"
-                    android:src="@drawable/ic_baseline_shopping_cart_24"
                     app:tint="@android:color/white" />
 
             </LinearLayout>

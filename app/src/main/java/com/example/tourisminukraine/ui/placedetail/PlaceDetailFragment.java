@@ -65,8 +65,8 @@ public class PlaceDetailFragment extends Fragment {
     TextView place_name;
     @BindView(R.id.place_descriptions)
     TextView place_descriptions;
-    @BindView(R.id.food_price)
-    TextView food_price;
+   /* @BindView(R.id.food_price)
+    TextView food_price;*/
 
     @BindView(R.id.ratingBar)
     RatingBar ratingBar;
@@ -74,15 +74,14 @@ public class PlaceDetailFragment extends Fragment {
     Button btnShowComment;
 
     @OnClick(R.id.btn_rating)
-    void onRatingButtonClick()
-    {
+    void onRatingButtonClick() {
         showDialogRating();
     }
 
     @OnClick(R.id.btnShowComment)
-    void onShowCommentButtonClick(){
+    void onShowCommentButtonClick() {
         CommentFragment commentFragment = CommentFragment.getInstance();
-        commentFragment.show(getActivity().getSupportFragmentManager(),"CommentFragment");
+        commentFragment.show(getActivity().getSupportFragmentManager(), "CommentFragment");
     }
 
     //Діалог комент і рейтинг
@@ -110,8 +109,8 @@ public class PlaceDetailFragment extends Fragment {
             //commentModel.setUid(Common.currenrUser.getUid());
             commentModel.setComment(edt_comment.getText().toString());
             commentModel.setRatingValue(ratingBar.getRating());
-            Map<String ,Object> serverTimeStamp = new HashMap<>();
-            serverTimeStamp.put ("timeStamp", ServerValue.TIMESTAMP );
+            Map<String, Object> serverTimeStamp = new HashMap<>();
+            serverTimeStamp.put("timeStamp", ServerValue.TIMESTAMP);
             commentModel.setCommentTimeStamp(serverTimeStamp);
 
             placeDetailViewModel.setCommentModel(commentModel);
@@ -124,11 +123,11 @@ public class PlaceDetailFragment extends Fragment {
     }
 
 
-    public View onCreateView (@NonNull LayoutInflater inflater,
-                              ViewGroup container, Bundle savedInstanceState){
-        placeDetailViewModel=
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        placeDetailViewModel =
                 new ViewModelProvider(this).get(PlaceDetailViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_place_detail, container,false);
+        View root = inflater.inflate(R.layout.fragment_place_detail, container, false);
         unbinder = ButterKnife.bind(this, root);
         initView();
         placeDetailViewModel.getMutableLiveDataPlace().observe(getViewLifecycleOwner(), new Observer<PlaceModel>() {
@@ -144,7 +143,8 @@ public class PlaceDetailFragment extends Fragment {
 
         return root;
     }
-     //діалог
+
+    //діалог
     private void initView() {
         waitingDialog = new SpotsDialog.Builder().setCancelable(false).setContext(getContext()).build();
     }
@@ -159,8 +159,7 @@ public class PlaceDetailFragment extends Fragment {
                 .push()
                 .setValue(commentModel)
                 .addOnCompleteListener(task -> {
-                    if (task.isSuccessful())
-                    {
+                    if (task.isSuccessful()) {
                         //після додавання коменту до бази, оновлюємо місце
                         addRatingToPlace(commentModel.getRatingValue());
                     }
@@ -168,6 +167,7 @@ public class PlaceDetailFragment extends Fragment {
                 });
 
     }
+
     //оновлюємо рейтинг місця
     private void addRatingToPlace(float ratingValue) {
         FirebaseDatabase.getInstance()
@@ -178,8 +178,7 @@ public class PlaceDetailFragment extends Fragment {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists())
-                        {
+                        if (snapshot.exists()) {
                             PlaceModel placeModel = snapshot.getValue(PlaceModel.class);
                             placeModel.setKey(Common.selectedPlace.getKey()); //Важливо
 
@@ -189,10 +188,10 @@ public class PlaceDetailFragment extends Fragment {
                             if (placeModel.getRatingCount() == null)
                                 placeModel.setRatingCount(0L); // l = L lower case
                             double sumRating = placeModel.getRatingValue() + ratingValue;
-                            long ratingCount = placeModel.getRatingCount()+1;
+                            long ratingCount = placeModel.getRatingCount() + 1;
                             //double result = sumRating/ratingCount;
 
-                            Map<String , Object> updateData = new HashMap<>();
+                            Map<String, Object> updateData = new HashMap<>();
                             updateData.put("ratingValue", sumRating);
                             updateData.put("ratingCount", ratingCount);
 
@@ -204,8 +203,7 @@ public class PlaceDetailFragment extends Fragment {
                                     .updateChildren(updateData)
                                     .addOnCompleteListener(task -> {
                                         waitingDialog.dismiss();
-                                        if (task.isSuccessful())
-                                        {
+                                        if (task.isSuccessful()) {
                                             Toast.makeText(getContext(), "Дякуємо, Ваш відгук важливий !", Toast.LENGTH_SHORT).show();
                                             Common.selectedPlace = placeModel;
                                             placeDetailViewModel.setPlaceModel(placeModel); //Метод оновлення
@@ -213,15 +211,14 @@ public class PlaceDetailFragment extends Fragment {
                                     });
 
 
-                        }
-                        else
+                        } else
                             waitingDialog.dismiss();
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         waitingDialog.dismiss();
-                        Toast.makeText(getContext(), ""+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "" + error.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -230,17 +227,23 @@ public class PlaceDetailFragment extends Fragment {
     }
 
     private void displayInfo(PlaceModel placeModel) {
-        Glide.with(getContext()).load(placeModel.getImage()).into(img_place);
-        place_name.setText(new StringBuilder(placeModel.getName()));
-        place_descriptions.setText(new StringBuilder(placeModel.getDescription()));
-        food_price.setText(new StringBuilder(placeModel.getPrice().toString()));
 
-        if (placeModel.getRatingValue() != null)
-        ratingBar.setRating(placeModel.getRatingValue().floatValue() / placeModel.getRatingCount());
+        if (placeModel != null) {
+            Glide.with(getContext()).load(placeModel.getImage()).into(img_place);
+            place_name.setText(new StringBuilder(placeModel.getName()));
+            place_descriptions.setText(new StringBuilder(placeModel.getDescription()));
+            //food_price.setText(new StringBuilder(placeModel.getPrice().toString()));
 
-        ((AppCompatActivity)getActivity())
-                .getSupportActionBar()
-                .setTitle(Common.selectedPlace.getName());
+            if (placeModel.getRatingValue() != null)
+                ratingBar.setRating(placeModel.getRatingValue().floatValue() / placeModel.getRatingCount());
+
+            ((AppCompatActivity) getActivity())
+                    .getSupportActionBar()
+                    .setTitle(Common.selectedPlace.getName());
+        } else {
+            displayInfo(placeModel);
+
+        }
     }
 
 

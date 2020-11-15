@@ -27,6 +27,7 @@ public class SignInEmail extends AppCompatActivity {
     }
 
     private void showSignInOptions() {
+
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()

@@ -113,14 +113,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public void onCategorySelected(CategoryClick event) {
         if (event.isSuccess()) {
             navController.navigate(R.id.nav_place_list);
-            Toast.makeText(this, "You Clicked to:" + event.getCategoryModel().getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Обрано:" + event.getCategoryModel().getName(), Toast.LENGTH_SHORT).show();
         }
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onPlaceItemClick(PlaceItemClick event) {
         if (event.isSuccess()) {
-            Toast.makeText(this, "You Clicked to:" + event.getPlaceModel().getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Обрано:" + event.getPlaceModel().getName(), Toast.LENGTH_SHORT).show();
 
             navController.navigate(R.id.nav_place_detail);
         }
@@ -190,8 +190,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     .addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists())
-                            {
+                            if (snapshot.exists()) {
                                 Common.categorySelected = snapshot.getValue(CategoryModel.class);
                                 Common.categorySelected.setMenu_id(snapshot.getKey());
 
@@ -257,8 +256,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     .addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists())
-                            {
+                            if (snapshot.exists()) {
                                 Common.categorySelected = snapshot.getValue(CategoryModel.class);
                                 Common.categorySelected.setMenu_id(snapshot.getKey());
 
@@ -312,5 +310,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about_project:
+                Intent intent = new Intent(this, AboutProject.class);
+                startActivity(intent);
+                return  true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
     }
 }
