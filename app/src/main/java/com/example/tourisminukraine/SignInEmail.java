@@ -32,7 +32,6 @@ public class SignInEmail extends AppCompatActivity {
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
-                        .setLogo(R.drawable.logo_eat_it)
                         .setTheme(R.style.MyTheme)
                         .build(), MY_REQUEST_CODE
         );
@@ -50,7 +49,7 @@ public class SignInEmail extends AppCompatActivity {
                 //Get User
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 //show email on Toast
-                Toast.makeText(this, "Вітаємо "+user.getEmail(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Гарної мардрівки Вам !", Toast.LENGTH_SHORT).show();
                 Intent homeIntent = new Intent(SignInEmail.this, HomeActivity.class);
                 startActivity(homeIntent);
             }

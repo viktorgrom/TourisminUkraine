@@ -1,8 +1,5 @@
 package com.example.tourisminukraine.model;
 
-import com.denzcoskun.imageslider.ImageSlider;
-
-import java.util.List;
 
 public class PlaceModel {
     private String key;

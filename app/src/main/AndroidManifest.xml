@@ -12,13 +12,13 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:icon="@drawable/ukraine_icon"
+        android:roundIcon="@drawable/ukraine_icon"
         android:theme="@style/Theme.TourismInUkraine"
         tools:replace="theme">
-        <activity android:name=".AboutProject"></activity>
+        <activity android:name=".AboutProject" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

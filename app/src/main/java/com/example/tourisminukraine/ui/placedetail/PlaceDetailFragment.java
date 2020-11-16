@@ -22,18 +22,16 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.andremion.counterfab.CounterFab;
 import com.bumptech.glide.Glide;
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+
 import com.example.tourisminukraine.Common.Common;
 import com.example.tourisminukraine.R;
 import com.example.tourisminukraine.model.CommentModel;
 import com.example.tourisminukraine.model.PlaceModel;
 import com.example.tourisminukraine.ui.comments.CommentFragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
