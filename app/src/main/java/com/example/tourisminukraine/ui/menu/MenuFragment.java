@@ -64,6 +64,7 @@ public class MenuFragment extends Fragment {
             Toast.makeText(getContext(), "" +s, Toast.LENGTH_SHORT).show();
             dialog.dismiss();
         });
+
         menuViewModel.getCategoryListMultable().observe(getViewLifecycleOwner(), categoryModelList ->{
             dialog.dismiss();
             adapter = new MyCategoriesAdapter(getContext(), categoryModelList);

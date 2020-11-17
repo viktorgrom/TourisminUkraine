@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#ECEFEF"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -16,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"
+            android:layout_weight="3"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -25,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@fonts/brandon_medium"
                 android:text="@string/popular_categories"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -37,7 +38,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
+            android:padding="4dp"
             android:orientation="vertical">
 
             <TextView
@@ -47,7 +49,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@fonts/brandon_medium"
                 android:textStyle="bold"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:text="@string/best_deals"/>
             <com.asksira.loopingviewpager.LoopingViewPager
                 android:layout_width="match_parent"

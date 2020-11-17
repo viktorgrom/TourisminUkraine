@@ -23,11 +23,11 @@ import java.util.List;
 
 public class HomeViewModel extends ViewModel implements ICategoryCallbackListener, IBestPlaceCallbackListener {
 
-    private MutableLiveData <List<CategoryModel>> categoryList;
     private MutableLiveData <List<BestPlaceModel>> bestPlaceList;
-    private MutableLiveData <String> messageError;
-    private ICategoryCallbackListener categoryCallbackListener;
     private IBestPlaceCallbackListener bestPlaceCallbackListener;
+    private MutableLiveData<List<CategoryModel>> categoryListMultable;
+    private MutableLiveData<String > messageError = new MutableLiveData<>();
+    private ICategoryCallbackListener categoryCallbackListener;
 
     public HomeViewModel() {
         categoryCallbackListener = this;
@@ -67,26 +67,27 @@ public class HomeViewModel extends ViewModel implements ICategoryCallbackListene
         });
     }
 
-    public MutableLiveData<List<CategoryModel>> getPopularList() {
-        if (categoryList == null)
+    public MutableLiveData<List<CategoryModel>> getCategoryListMultable() {
+        if (categoryListMultable == null)
         {
-            categoryList = new MutableLiveData<>();
+            categoryListMultable = new MutableLiveData<>();
             messageError = new MutableLiveData<>();
-            loadCategoryList();
+            loadCategories();
         }
-        return categoryList;
+        return categoryListMultable;
     }
 
-    private void loadCategoryList() {
-        List <CategoryModel> tempList = new ArrayList<>();
+    public void loadCategories() {
+        List<CategoryModel> tempList = new ArrayList<>();
         DatabaseReference categoryRef = FirebaseDatabase.getInstance().getReference(Common.CATEGORY_REF);
         categoryRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot itemSnapshot: snapshot.getChildren())
+                for (DataSnapshot itemSnapShot:snapshot.getChildren())
                 {
-                    CategoryModel model = itemSnapshot.getValue(CategoryModel.class);
-                    tempList.add(model);
+                    CategoryModel categoryModel = itemSnapShot.getValue(CategoryModel.class);
+                    categoryModel.setMenu_id(itemSnapShot.getKey());
+                    tempList.add(categoryModel);
                 }
                 categoryCallbackListener.onCategoryLoadSuccess(tempList);
             }
@@ -104,8 +105,8 @@ public class HomeViewModel extends ViewModel implements ICategoryCallbackListene
     }
 
     @Override
-    public void onCategoryLoadSuccess(List<CategoryModel> categoryModels) {
-        categoryList.setValue(categoryModels);
+    public void onCategoryLoadSuccess(List<CategoryModel> categoryModelList) {
+        categoryListMultable.setValue(categoryModelList);
     }
 
     @Override
