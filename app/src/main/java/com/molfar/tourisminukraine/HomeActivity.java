@@ -104,6 +104,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onStop() {
         EventBus.getDefault().unregister(this);
+
         super.onStop();
     }
 

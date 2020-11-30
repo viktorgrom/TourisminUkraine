@@ -116,6 +116,20 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options111.snippet("");
             options111.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat1_castle));
 
+            LatLng location112 = new LatLng(51.342598, 32.886276);
+            MarkerOptions options112 = new MarkerOptions();
+            options112.position(location112);
+            options112.title("Батуринська фортеця 'Цитадель'");
+            options112.snippet("");
+            options112.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat1_castle));
+
+            LatLng location113 = new LatLng(50.47750300273514, 29.21640124886891);
+            MarkerOptions options113 = new MarkerOptions();
+            options113.position(location113);
+            options113.title("Замок-музей Радомисль");
+            options113.snippet("");
+            options113.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat1_castle));
+
             LatLng location21 = new LatLng(49.899183, 25.738435);
             MarkerOptions options21 = new MarkerOptions();
             options21.position(location21);
@@ -179,6 +193,21 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options29.snippet("");
             options29.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat2));
 
+            LatLng location210 = new LatLng(50.20259394465113, 29.827446915372544);
+            MarkerOptions options210 = new MarkerOptions();
+            options210.position(location210);
+            options210.title("Палац Хоєцьких");
+            options210.snippet("");
+            options210.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat2));
+
+            LatLng location211 = new LatLng(48.87250352727883, 30.697272827376754);
+            MarkerOptions options211 = new MarkerOptions();
+            options211.position(location211);
+            options211.title("Палац Шувалова");
+            options211.snippet("");
+            options211.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat2));
+
+
             LatLng location31 = new LatLng(48.734514, 25.637307);
             MarkerOptions options31 = new MarkerOptions();
             options31.position(location31);
@@ -235,6 +264,34 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options38.snippet("");
             options38.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat3_2));
 
+            LatLng location39 = new LatLng(48.80334695451263, 27.0064909333546);
+            MarkerOptions options39 = new MarkerOptions();
+            options39.position(location39);
+            options39.title("Водоспад Бурбун");
+            options39.snippet("");
+            options39.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat3_2));
+
+            LatLng location310 = new LatLng(51.45406528460364, 24.38522192631205);
+            MarkerOptions options310 = new MarkerOptions();
+            options310.position(location310);
+            options310.title("Семенова гора");
+            options310.snippet("");
+            options310.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat3_2));
+
+            LatLng location311 = new LatLng(49.094615265962055, 30.397168505046466);
+            MarkerOptions options311 = new MarkerOptions();
+            options311.position(location311);
+            options311.title("Буцький каньйон");
+            options311.snippet("");
+            options311.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat3_2));
+
+            LatLng location312 = new LatLng(46.01539851621289, 30.39266314535958);
+            MarkerOptions options312 = new MarkerOptions();
+            options312.position(location312);
+            options312.title("Будацька коса");
+            options312.snippet("");
+            options312.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat3_2));
+
             LatLng location41 = new LatLng(50.280283, 30.450634);
             MarkerOptions options41 = new MarkerOptions();
             options41.position(location41);
@@ -284,6 +341,34 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options47.snippet("");
             options47.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat4));
 
+            LatLng location48 = new LatLng(50.21821667705015, 30.756093005553858);
+            MarkerOptions options48 = new MarkerOptions();
+            options48.position(location48);
+            options48.title("Кийлівська дамба");
+            options48.snippet("");
+            options48.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat4));
+
+            LatLng location49 = new LatLng(50.039898353028846, 28.683668844136278);
+            MarkerOptions options49 = new MarkerOptions();
+            options49.position(location49);
+            options49.title("Будиночок рибалки на острові кохання");
+            options49.snippet("");
+            options49.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat4));
+
+            LatLng location410 = new LatLng(50.36877508759842, 29.1931587769486);
+            MarkerOptions options410 = new MarkerOptions();
+            options410.position(location410);
+            options410.title("Кар'єр Високий камінь");
+            options410.snippet("");
+            options410.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat4));
+
+            LatLng location411 = new LatLng(50.103048, 25.702074);
+            MarkerOptions options411 = new MarkerOptions();
+            options411.position(location411);
+            options411.title("Легедзине");
+            options411.snippet("");
+            options411.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat4));
+
             LatLng location51 = new LatLng(50.005144, 25.507038);
             MarkerOptions options51 = new MarkerOptions();
             options51.position(location51);
@@ -326,6 +411,69 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options56.snippet("");
             options56.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
 
+            LatLng location57 = new LatLng(49.37279067822557, 29.67782983218802);
+            MarkerOptions options57 = new MarkerOptions();
+            options57.position(location57);
+            options57.title("Каплиця Свейковських");
+            options57.snippet("");
+            options57.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location58 = new LatLng(51.47782782957101, 31.284409485260475);
+            MarkerOptions options58 = new MarkerOptions();
+            options58.position(location58);
+            options58.title("Антонієві печери");
+            options58.snippet("");
+            options58.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location59 = new LatLng(50.87614561172971, 31.179537653400573);
+            MarkerOptions options59 = new MarkerOptions();
+            options59.position(location59);
+            options59.title("Храм св. Георгія в с. Данівка");
+            options59.snippet("");
+            options59.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location510 = new LatLng(50.99564536451878, 31.139426959532155);
+            MarkerOptions options510 = new MarkerOptions();
+            options510.position(location510);
+            options510.title("Трьохсвятительська церква с. Лемеші");
+            options510.snippet("");
+            options510.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location511 = new LatLng(51.5543161844238, 32.01498016622743);
+            MarkerOptions options511 = new MarkerOptions();
+            options511.position(location511);
+            options511.title("Церква Успіння Пресвятої Богородиці с. Волосківці");
+            options511.snippet("");
+            options511.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location512 = new LatLng(51.52627585763449, 32.03219916482482);
+            MarkerOptions options512 = new MarkerOptions();
+            options512.position(location512);
+            options512.title("Храм Пресвятої Трійці с. Степанівка");
+            options512.snippet("");
+            options512.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location513 = new LatLng(51.607916516621465, 32.0129961079719);
+            MarkerOptions options513 = new MarkerOptions();
+            options513.position(location513);
+            options513.title("Козацька Покровська церква с. Синявка");
+            options513.snippet("");
+            options513.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location514 = new LatLng(50.63642703610482, 32.47467090052784);
+            MarkerOptions options514 = new MarkerOptions();
+            options514.position(location514);
+            options514.title("Густинський Свято-Троїцький монастир");
+            options514.snippet("");
+            options514.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
+            LatLng location515 = new LatLng(48.5956839824458, 27.322064671081385);
+            MarkerOptions options515 = new MarkerOptions();
+            options515.position(location515);
+            options515.title("Скельний монастир Галиця");
+            options515.snippet("");
+            options515.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat5_church));
+
             LatLng location61 = new LatLng(49.966383, 31.391249);
             MarkerOptions options61 = new MarkerOptions();
             options61.position(location61);
@@ -346,6 +494,41 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options63.title("Кремінські ліси");
             options63.snippet("");
             options63.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
+
+            LatLng location64 = new LatLng(50.89526551622905, 30.871761699506873);
+            MarkerOptions options64 = new MarkerOptions();
+            options64.position(location64);
+            options64.title("Парк природи 'Беремицьке'");
+            options64.snippet("");
+            options64.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
+
+            LatLng location65 = new LatLng(49.83921518372384, 29.65956026530128);
+            MarkerOptions options65 = new MarkerOptions();
+            options65.position(location65);
+            options65.title("Ландшафтний парк Буки");
+            options65.snippet("");
+            options65.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
+
+            LatLng location66 = new LatLng(50.41963638507429, 29.93558561291829);
+            MarkerOptions options66 = new MarkerOptions();
+            options66.position(location66);
+            options66.title("Добропарк");
+            options66.snippet("");
+            options66.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
+
+            LatLng location67 = new LatLng(49.81462838628894, 30.078145078222242);
+            MarkerOptions options67 = new MarkerOptions();
+            options67.position(location67);
+            options67.title("Олександрія");
+            options67.snippet("");
+            options67.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
+
+            LatLng location68 = new LatLng(50.78747180957767, 32.81514951118296);
+            MarkerOptions options68 = new MarkerOptions();
+            options68.position(location68);
+            options68.title("Тростянецький парк");
+            options68.snippet("");
+            options68.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat6_park));
 
             LatLng location71 = new LatLng(50.409155, 29.891771);
             MarkerOptions options71 = new MarkerOptions();
@@ -375,6 +558,13 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options74.snippet("");
             options74.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat7));
 
+            LatLng location75 = new LatLng(51.09856744191788, 31.207994226997933);
+            MarkerOptions options75 = new MarkerOptions();
+            options75.position(location75);
+            options75.title("Маєток Пашковських");
+            options75.snippet("");
+            options75.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat7));
+
             LatLng location81 = new LatLng(50.101062, 25.728370);
             MarkerOptions options81 = new MarkerOptions();
             options81.position(location81);
@@ -396,6 +586,55 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             options83.snippet("");
             options83.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
 
+            LatLng location84 = new LatLng(50.0726194198871, 31.462253337585732);
+            MarkerOptions options84 = new MarkerOptions();
+            options84.position(location84);
+            options84.title("Переяслав");
+            options84.snippet("");
+            options84.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location85 = new LatLng(49.802694320453575, 30.124086285391016);
+            MarkerOptions options85 = new MarkerOptions();
+            options85.position(location85);
+            options85.title("Біла Церква");
+            options85.snippet("");
+            options85.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location86 = new LatLng(50.91333336318149, 31.117014318186854);
+            MarkerOptions options86 = new MarkerOptions();
+            options86.position(location86);
+            options86.title("Козелець");
+            options86.snippet("");
+            options86.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location87 = new LatLng(51.64138787051289, 31.566096871406486);
+            MarkerOptions options87 = new MarkerOptions();
+            options87.position(location87);
+            options87.title("Седнів");
+            options87.snippet("");
+            options87.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location88 = new LatLng(50.59331858046965, 32.38731249048542);
+            MarkerOptions options88 = new MarkerOptions();
+            options88.position(location88);
+            options88.title("Прилуки");
+            options88.snippet("");
+            options88.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location89 = new LatLng(51.56863763825095, 32.954674879657794);
+            MarkerOptions options89 = new MarkerOptions();
+            options89.position(location89);
+            options89.title("Короп");
+            options89.snippet("");
+            options89.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
+            LatLng location810 = new LatLng(52.012780613287305, 33.26249187988585);
+            MarkerOptions options810 = new MarkerOptions();
+            options810.position(location810);
+            options810.title("Новгород-Сіверський");
+            options810.snippet("");
+            options810.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_cat8));
+
             //move camera to start position
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(location29, +5));
             //map.setOnInfoWindowClickListener(googleMap);
@@ -410,6 +649,8 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             map.addMarker(options19);
             map.addMarker(options110);
             map.addMarker(options111);
+            map.addMarker(options112);
+            map.addMarker(options113);
             map.addMarker(options21);
             map.addMarker(options22);
             map.addMarker(options23);
@@ -419,6 +660,8 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             map.addMarker(options27);
             map.addMarker(options28);
             map.addMarker(options29);
+            map.addMarker(options210);
+            map.addMarker(options211);
             map.addMarker(options31);
             map.addMarker(options32);
             map.addMarker(options33);
@@ -427,6 +670,10 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             map.addMarker(options36);
             map.addMarker(options37);
             map.addMarker(options38);
+            map.addMarker(options39);
+            map.addMarker(options310);
+            map.addMarker(options311);
+            map.addMarker(options312);
             map.addMarker(options41);
             map.addMarker(options42);
             map.addMarker(options43);
@@ -434,21 +681,46 @@ public class MapsFragment extends Fragment implements GoogleMap.OnInfoWindowClic
             map.addMarker(options45);
             map.addMarker(options46);
             map.addMarker(options47);
+            map.addMarker(options48);
+            map.addMarker(options49);
+            map.addMarker(options410);
+            map.addMarker(options411);
             map.addMarker(options51);
             map.addMarker(options52);
             map.addMarker(options53);
             map.addMarker(options54);
             map.addMarker(options55);
             map.addMarker(options56);
+            map.addMarker(options57);
+            map.addMarker(options58);
+            map.addMarker(options59);
+            map.addMarker(options510);
+            map.addMarker(options511);
+            map.addMarker(options512);
+            map.addMarker(options513);
+            map.addMarker(options514);
+            map.addMarker(options515);
             map.addMarker(options61);
             map.addMarker(options62);
             map.addMarker(options63);
+            map.addMarker(options64);
+            map.addMarker(options65);
+            map.addMarker(options66);
+            map.addMarker(options67);
+            map.addMarker(options68);
             map.addMarker(options71);
             map.addMarker(options72);
             map.addMarker(options73);
             map.addMarker(options81);
             map.addMarker(options82);
             map.addMarker(options83);
+            map.addMarker(options84);
+            map.addMarker(options85);
+            map.addMarker(options86);
+            map.addMarker(options87);
+            map.addMarker(options88);
+            map.addMarker(options89);
+            map.addMarker(options810);
 
         }
 
